@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tissue Salt Wellness Assessment - Dr. Aliki V. Strydom-Hensen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f8f6f0 0%, #e8e6e0 100%);
+            color: #2c3e2d;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 3px solid #d4af37;
+            background: linear-gradient(135deg, #f8f6f0 0%, #e8e6e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a7c5a;
+        }
+
+        .main-title {
+            font-size: 2.5em;
+            color: #5a7c5a;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #8b9d8b;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .practitioner {
+            font-size: 1.1em;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #5a7c5a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .tier-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tier-card {
+            background: linear-gradient(135deg, #f8f6f0 0%, #e8e6e0 100%);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+
+        .tier-price {
+            font-size: 2.5em;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tier-name {
+            font-size: 1.5em;
+            color: #5a7c5a;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .tier-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .tier-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .tier-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #5a7c5a;
+            font-weight: bold;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #5a7c5a 0%, #4a6b4a 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #8b9d8b 0%, #7a8c7a 100%);
+            font-size: 1em;
+            padding: 12px 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #5a7c5a;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e8e6e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: 'Georgia', serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .placeholder-text {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #856404;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .payment-summary {
+            background: #f8f6f0;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e8e6e0;
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #5a7c5a;
+            margin-top: 10px;
+        }
+
+        .payment-form {
+            background: #f8f6f0;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .success-message {
+            background: #d4edda;
+            border: 2px solid #c3e6cb;
+            color: #155a28;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+
+        /* Questionnaire Styles */
+        .progress-bar {
+            background: #e8e6e0;
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, #5a7c5a 0%, #4a6b4a 100%);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            background: #f8f6f0;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            color: #5a7c5a;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .answer-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .answer-option {
+            background: white;
+            border: 2px solid #e8e6e0;
+            border-radius: 10px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .answer-option:hover {
+            border-color: #d4af37;
+            background: #f0ede0;
+        }
+
+        .answer-option.selected {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: white;
+            border-color: #d4af37;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .results-grid {
+            display: grid;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .result-item {
+            background: #f8f6f0;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .result-item h3 {
+            color: #5a7c5a;
+            margin-bottom: 10px;
+        }
+
+        .result-item p {
+            color: #2c3e2d;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .main-title {
+                font-size: 2em;
+            }
+            
+            .tier-selection {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">IBH 🌿</div>
+            <h1 class="main-title">Tissue Salt Wellness Assessment</h1>
+            <p class="subtitle">Discover Your Body's Natural Balance</p>
+            <p class="practitioner">with Dr. Aliki V. Strydom-Hensen</p>
+        </div>
+
+        <!-- Login Section -->
+        <div id="loginSection" class="card">
+            <h2 class="section-title">Welcome Back</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Sign in to access your personalized wellness journey</p>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="your.email@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="btn btn-gold" onclick="login()">Sign In</button>
+                <button class="btn btn-secondary" onclick="showGuestMode()" style="margin-left: 10px;">Continue as Guest</button>
+            </div>
+            
+            <div class="placeholder-text" style="margin-top: 20px;">
+                <strong>Demo Note:</strong> This is a demonstration login. In the real version, this will connect to a secure authentication system. For now, any email/password combination will work to test the system. Try: test@example.com / password123
+            </div>
+        </div>
+
+
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" class="card hidden">
+            <h2 class="section-title">My Assessment History</h2>
+            <p style="text-align: center; margin-bottom: 20px;">
+                View your completed assessments and results
+            </p>
+
+            <div class="placeholder-text">
+                <strong>Database Demo:</strong> Your assessment history is stored in the database and persists across sessions. You can view past results anytime you log in.
+            </div>
+
+            <div style="text-align: right; margin: 20px 0;">
+                <button class="btn btn-secondary" onclick="showWelcomeFromDashboard()">New Assessment</button>
+                <button class="btn btn-secondary" onclick="logout()" style="margin-left: 10px;">Logout</button>
+            </div>
+
+            <div id="historyContainer" style="margin-top: 30px;">
+                <p style="text-align: center; color: #888;">Loading your history...</p>
+            </div>
+        </div>
+
+        
+        <!-- Facial Analysis Section -->
+        <div id="facialAnalysisSection" class="card hidden">
+            <h2 class="section-title">AI Facial Analysis</h2>
+            
+            <div class="placeholder-text">
+                <strong>Demo Note:</strong> This is a simulated facial analysis demo. In the full version, this would use AI computer vision to analyze facial features and detect tissue salt deficiencies based on the Schüssler facial diagnosis method developed by Kurt Hickethier. For now, it generates sample results to demonstrate the concept.
+            </div>
+
+            <div style="margin: 30px 0;">
+                <h3 style="color: #5a7c5a; margin-bottom: 15px;">Upload Your Photo</h3>
+                <p style="margin-bottom: 20px;">Upload a clear, front-facing photo in good lighting for best results.</p>
+                
+                <div style="border: 2px dashed #5a7c5a; border-radius: 8px; padding: 40px; text-align: center; background: #f9f9f9;">
+                    <input type="file" id="facePhoto" accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)">
+                    <label for="facePhoto" style="cursor: pointer;">
+                        <div style="font-size: 48px; margin-bottom: 15px;">📷</div>
+                        <div style="color: #5a7c5a; font-weight: bold; margin-bottom: 10px;">Click to Upload Photo</div>
+                        <div style="color: #888; font-size: 0.9em;">or drag and drop here</div>
+                    </label>
+                </div>
+
+                <div id="photoPreview" style="margin-top: 20px; display: none;">
+                    <img id="uploadedPhoto" style="max-width: 100%; max-height: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                </div>
+
+                <div id="analyzeButtonContainer" style="margin-top: 20px; text-align: center;">
+                    <button class="btn btn-primary" onclick="analyzeFace()" style="padding: 15px 40px; font-size: 1.1em;">
+                        🔍 Analyze Face
+                    </button>
+                </div>
+
+                <div id="analysisProgress" style="margin-top: 30px; display: none;">
+                    <div style="background: #f0f0f0; border-radius: 8px; padding: 20px; text-align: center;">
+                        <div style="font-size: 24px; margin-bottom: 10px;">⏳</div>
+                        <div style="color: #5a7c5a; font-weight: bold;">Analyzing facial features...</div>
+                        <div style="color: #888; font-size: 0.9em; margin-top: 5px;" id="analysisStep">Detecting skin tone...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="btn btn-secondary" onclick="returnHome()">Return to Home</button>
+            </div>
+        </div>
+
+        <!-- Facial Analysis Results Section -->
+        <div id="facialResultsSection" class="card hidden">
+            <h2 class="section-title">Your Facial Analysis Results</h2>
+            
+            <div class="placeholder-text">
+                <strong>Demo Note:</strong> These are simulated results for demonstration purposes. In the full version, AI would analyze your actual facial features using computer vision and the Schüssler facial diagnosis method.
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
+                <div>
+                    <h3 style="color: #5a7c5a; margin-bottom: 15px;">Your Photo</h3>
+                    <img id="analyzedPhoto" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                </div>
+                <div>
+                    <h3 style="color: #5a7c5a; margin-bottom: 15px;">Detected Features</h3>
+                    <div id="detectedFeatures" style="background: #f9f9f9; padding: 20px; border-radius: 8px; height: 100%;">
+                        <!-- Features will be inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin: 30px 0;">
+                <h3 style="color: #5a7c5a; margin-bottom: 20px; text-align: center;">Recommended Tissue Salts</h3>
+                <div id="facialRecommendations">
+                    <!-- Recommendations will be inserted here -->
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn btn-primary" onclick="orderCustomBlend()">Order Custom Blend ($45)</button>
+                <button class="btn btn-secondary" onclick="returnHome()" style="margin-left: 15px;">Return to Home</button>
+            </div>
+        </div>
+
+        <!-- Welcome Section -->
+        <div id="welcomeSection" class="card hidden">
+            <h2 class="section-title">Choose Your Wellness Assessment</h2>
+            <div style="text-align: center; margin-bottom: 15px;">
+                <button class="btn btn-secondary" onclick="showDashboard()" style="margin: 0 auto; display: inline-block;">View My History</button>
+            </div>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px;">
+                Tissue salts, also known as cell salts or biochemic remedies, are gentle mineral supplements that support your body's natural healing processes.
+            </p>
+
+            <div class="placeholder-text">
+                <strong>Demo Note:</strong> This demo uses infant/child assessment questions from Dr. Aliki's Excel files (ages 0-3). The full version will include age-based routing: 0-3 years (infant questions), 4-17 years (child questions), and 18+ years (adult questions). Each age group has its own specialized question set.
+            </div>
+
+            <h3 style="text-align: center; color: #5a7c5a; margin: 30px 0 20px 0; font-size: 1.5em;">Assessment Options</h3>
+            
+            <div class="tier-selection">
+                <div class="tier-card" onclick="selectTier('Basic Assessment', 5)">
+                    <div class="tier-price">$5</div>
+                    <div class="tier-name">Basic Assessment</div>
+                    <ul class="tier-features">
+                        <li>15 targeted questions</li>
+                        <li>Infant-specific symptoms</li>
+                        <li>Yes/No format</li>
+                        <li>5 minute completion</li>
+                        <li>Email results summary</li>
+                    </ul>
+                    <button class="btn">Start Basic Assessment</button>
+                </div>
+
+                <div class="tier-card" onclick="selectTier('Advanced Assessment', 30)">
+                    <div class="tier-price">$30</div>
+                    <div class="tier-name">Advanced Assessment</div>
+                    <ul class="tier-features">
+                        <li>30 comprehensive questions</li>
+                        <li>Extended infant symptoms</li>
+                        <li>Emotional & physical health</li>
+                        <li>15-20 minute completion</li>
+                        <li>Comprehensive PDF report</li>
+                    </ul>
+                    <button class="btn">Start Advanced Assessment</button>
+                </div>
+
+                <div class="tier-card" onclick="selectTier('Facial Analysis', 40)">
+                    <div class="tier-price">$40</div>
+                    <div class="tier-name">Facial Analysis</div>
+                    <ul class="tier-features">
+                        <li>AI-powered facial recognition</li>
+                        <li>Physical signs analysis</li>
+                        <li>Instant recommendations</li>
+                        <li>5 minute completion</li>
+                        <li>Visual report with markers</li>
+                    </ul>
+                    <button class="btn">Start Facial Analysis</button>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: #5a7c5a; margin: 30px 0 20px 0; font-size: 1.5em;">Premium Services</h3>
+            
+            <div class="tier-selection">
+                <div class="tier-card" onclick="selectTier('Personal Consultation', 85)">
+                    <div class="tier-price">$85</div>
+                    <div class="tier-name">Personal Consultation</div>
+                    <ul class="tier-features">
+                        <li>30-minute video call</li>
+                        <li>Direct consultation with Dr. Aliki</li>
+                        <li>Personalized wellness plan</li>
+                        <li>Follow-up email support</li>
+                        <li>Custom blend recommendations</li>
+                    </ul>
+                    <button class="btn">Book Consultation</button>
+                </div>
+
+                <div class="tier-card" onclick="selectTier('Hair Mineral Analysis', 220)">
+                    <div class="tier-price">$220</div>
+                    <div class="tier-name">Hair Mineral Analysis</div>
+                    <ul class="tier-features">
+                        <li>Complete mineral analysis</li>
+                        <li>Toxicity screening</li>
+                        <li>Nutritional assessment</li>
+                        <li>Comprehensive report</li>
+                        <li>Consultation included</li>
+                    </ul>
+                    <button class="btn">Order Analysis</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div id="paymentSection" class="card hidden">
+            <h2 class="section-title">Complete Your Order</h2>
+            
+            <div class="payment-summary">
+                <div class="payment-row">
+                    <span>Service:</span>
+                    <span id="orderItem">Basic Assessment</span>
+                </div>
+                <div class="payment-row">
+                    <span>Price:</span>
+                    <span id="orderPrice">$5.00</span>
+                </div>
+                <div class="payment-row">
+                    <span>Total:</span>
+                    <span id="orderTotal">$5.00</span>
+                </div>
+            </div>
+
+            <div class="payment-form">
+                <h3 style="color: #5a7c5a; margin-bottom: 20px;">Payment Information</h3>
+                
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" maxlength="19">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label for="cardExpiry">Expiry Date</label>
+                        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardCVC">CVC</label>
+                        <input type="text" id="cardCVC" placeholder="123" maxlength="4">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="billingZip">Billing ZIP Code</label>
+                    <input type="text" id="billingZip" placeholder="12345">
+                </div>
+            </div>
+
+            <div class="placeholder-text">
+                <strong>Demo Note:</strong> Use test card: 4242 4242 4242 4242, any future expiry (12/25), any CVC (123), any ZIP (12345)
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn btn-gold" onclick="processPayment()">Complete Payment</button>
+                <button class="btn btn-secondary" onclick="goBack()" style="margin-left: 10px;">Go Back</button>
+            </div>
+        </div>
+
+        <!-- Success Section -->
+        <div id="successSection" class="card hidden">
+            <div class="success-message">
+                <div class="success-icon">✓</div>
+                <h2 style="color: #155a28; margin-bottom: 15px;">Payment Successful!</h2>
+                <p style="font-size: 1.2em; margin-bottom: 20px;">Thank you for your purchase. Your order has been confirmed.</p>
+                <p><strong>Order Number:</strong> <span id="orderNumber">TS-001</span></p>
+                <p style="margin-top: 10px;"><strong>Confirmation Email:</strong> <span id="confirmEmail">your@email.com</span></p>
+            </div>
+
+            <div style="background: #f8f6f0; padding: 25px; border-radius: 15px; margin: 20px 0;">
+                <h3 style="color: #5a7c5a; margin-bottom: 15px;">Next Steps:</h3>
+                <ol style="margin-left: 20px; line-height: 2;">
+                    <li>Check your email for order confirmation and receipt</li>
+                    <li id="nextStep">Complete your assessment questionnaire</li>
+                    <li>Receive your personalized tissue salt recommendations</li>
+                    <li>Review your detailed wellness report</li>
+                </ol>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn btn-gold" onclick="startAssessment()">Start Your Assessment</button>
+                <button class="btn btn-secondary" onclick="returnHome()" style="margin-left: 10px;">Return to Home</button>
+            </div>
+        </div>
+
+        <!-- Questionnaire Section -->
+        <div id="questionnaireSection" class="card hidden">
+            <h2 class="section-title" id="questionnaireTitle">Basic Assessment</h2>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar" style="width: 10%"></div>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 20px; color: #8b9d8b;">
+                Question <span id="currentQuestionNum">1</span> of <span id="totalQuestions">10</span>
+            </p>
+
+            <div id="questionContainer"></div>
+
+            <div class="navigation-buttons">
+                <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" style="display: none;">Previous</button>
+                <button class="btn btn-gold" onclick="nextQuestion()" id="nextBtn">Next Question</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="card hidden">
+            <h2 class="section-title">Your Personalized Tissue Salt Recommendations</h2>
+            
+            <div class="success-message" style="margin-bottom: 30px;">
+                <p style="font-size: 1.2em; margin-bottom: 10px;">Assessment Complete!</p>
+                <p>Based on your responses, here are your recommended tissue salts:</p>
+            </div>
+
+            <div class="results-grid" id="resultsContainer"></div>
+
+            <div class="placeholder-text">
+                <strong>Demo Note:</strong> These recommendations are generated based on your questionnaire responses. In the full version, results would be saved to your account, emailed to you, and you'd have the option to order custom blends or book a consultation with Dr. Aliki.
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn btn-gold" onclick="orderCustomBlend()">Order Custom Blend ($45)</button>
+                <button class="btn btn-secondary" onclick="returnHome()" style="margin-left: 10px;">Return to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_URL = window.location.origin;
+        
+        let selectedService = '';
+        let selectedPrice = 0;
+        let userEmail = '';
+        let currentQuestion = 0;
+        let answers = {};
+        let questions = [];
+        
+        // Tissue Salts reference data for facial analysis
+        const tissueSalts = [
+            { name: 'Calc Fluor', fullName: 'Calcium Fluoride', description: 'Supports elastic tissue, teeth, and bone surfaces.', benefits: 'Improves skin elasticity, strengthens tooth enamel, supports connective tissue' },
+            { name: 'Calc Phos', fullName: 'Calcium Phosphate', description: 'Essential for bone and teeth formation, blood coagulation.', benefits: 'Supports growth, bone health, and recovery from illness' },
+            { name: 'Calc Sulph', fullName: 'Calcium Sulphate', description: 'Blood purifier and healer, supports skin health.', benefits: 'Aids wound healing, clears skin conditions, supports detoxification' },
+            { name: 'Ferr Phos', fullName: 'Iron Phosphate', description: 'Oxygen carrier, supports inflammation and fever response.', benefits: 'Boosts energy, supports immune function, reduces inflammation' },
+            { name: 'Kali Mur', fullName: 'Potassium Chloride', description: 'Supports mucous membranes and glandular function.', benefits: 'Relieves congestion, supports ear/throat health, aids digestion' },
+            { name: 'Kali Phos', fullName: 'Potassium Phosphate', description: 'Nerve nutrient, supports mental and physical energy.', benefits: 'Reduces stress, improves mental clarity, supports nervous system' },
+            { name: 'Kali Sulph', fullName: 'Potassium Sulphate', description: 'Oxygen distributor, supports skin and mucous membranes.', benefits: 'Improves skin health, aids detoxification, supports respiratory function' },
+            { name: 'Mag Phos', fullName: 'Magnesium Phosphate', description: 'Anti-spasmodic, relieves cramps and nerve pain.', benefits: 'Eases muscle cramps, reduces nerve pain, supports relaxation' },
+            { name: 'Nat Mur', fullName: 'Sodium Chloride', description: 'Water distributor, regulates fluid balance.', benefits: 'Balances hydration, supports emotional health, aids metabolism' },
+            { name: 'Nat Phos', fullName: 'Sodium Phosphate', description: 'Acid neutralizer, supports digestion.', benefits: 'Reduces acidity, aids digestion, supports joint health' },
+            { name: 'Nat Sulph', fullName: 'Sodium Sulphate', description: 'Water eliminator, supports liver and pancreas.', benefits: 'Aids detoxification, supports liver function, eliminates excess fluid' },
+            { name: 'Silicea', fullName: 'Silicon Dioxide', description: 'Cleanser and eliminator, supports connective tissue.', benefits: 'Strengthens hair/nails/skin, supports immune function, aids healing' }
+        ];
+
+        const basicQuestions = [
+            {
+                question: "Abscesses or hard swelling anywhere",
+                options: ["No", "Yes"],
+                salts: ["Calc Fluor", "Calc Sulph", "Silica", "Kali Mur"]
+            },
+            {
+                question: "Allergies, general",
+                options: ["No", "Yes"],
+                salts: ["Calc Phos"]
+            },
+            {
+                question: "Asthma; all types",
+                options: ["No", "Yes"],
+                salts: ["Mag Phos", "Kali Mur", "Kali Phos", "Kali Sulph", "Nat Sulph"]
+            },
+            {
+                question: "Bronchitis; all",
+                options: ["No", "Yes"],
+                salts: ["Silica", "Calc Sulph", "Calc Phos", "Kali Mur", "Calc Fluor", "Ferr Phos", "Kali Sulph"]
+            },
+            {
+                question: "Cough; hacking cough, sometimes with mucous",
+                options: ["No", "Yes"],
+                salts: ["Kali Sulph", "Calc Phos", "Kali Mur"]
+            },
+            {
+                question: "Ears; inflammation/infection",
+                options: ["No", "Yes"],
+                salts: ["Silica", "Calc Sulph", "Nat Phos", "Nat Mur", "Kali Mur", "Calc Fluor", "Ferr Phos", "Kali Phos", "Kali Sulph", "Nat Sulph"]
+            },
+            {
+                question: "Eyes, white discharge",
+                options: ["No", "Yes"],
+                salts: ["Kali Mur"]
+            },
+            {
+                question: "Eyes: yellowish discharge, gummed up lids",
+                options: ["No", "Yes"],
+                salts: ["Nat Phos"]
+            },
+            {
+                question: "Eyes; Discharge of clear mucous from eyes; watery",
+                options: ["No", "Yes"],
+                salts: ["Nat Mur"]
+            },
+            {
+                question: "Eyes; stye, inflamed eyes",
+                options: ["No", "Yes"],
+                salts: ["Silica"]
+            },
+            {
+                question: "Eyes; Tics or twitching of lids and mouth",
+                options: ["No", "Yes"],
+                salts: ["Silica", "Mag Phos"]
+            },
+            {
+                question: "Face; red, blotched",
+                options: ["No", "Yes"],
+                salts: ["Nat Phos"]
+            },
+            {
+                question: "Face; yellow or jaundiced with billiousness",
+                options: ["No", "Yes"],
+                salts: ["Nat Sulph"]
+            },
+            {
+                question: "Glands; swollen, e.g. throat",
+                options: ["No", "Yes"],
+                salts: ["Silica", "Calc Sulph", "Nat Phos", "Kali Mur", "Calc Fluor"]
+            },
+            {
+                question: "Hiccups",
+                options: ["No", "Yes"],
+                salts: ["Mag Phos"]
+            }
+        ];
+
+        const advancedQuestions = [
+            ...basicQuestions,
+            {
+                question: "Abdominal pain, e.g. colic or cramps",
+                options: ["No", "Yes"],
+                salts: ["Lycopodium", "Mag Phos", "Ferr Phos", "Pulsatilla", "Nat Sulph", "Merc Sol"]
+            },
+            {
+                question: "Acid smelling secretions (burping, urine, feaces)",
+                options: ["No", "Yes"],
+                salts: ["Nat Phos"]
+            },
+            {
+                question: "Back: spinal curvature (scoliosis), spina bifida",
+                options: ["No", "Yes"],
+                salts: ["Silica"]
+            },
+            {
+                question: "Chest; rattling, rattling of mucous",
+                options: ["No", "Yes"],
+                salts: ["Kali Sulph"]
+            },
+            {
+                question: "Craving; for non-food items (i.e. ice, dirt, paint, ash)",
+                options: ["No", "Yes"],
+                salts: ["Ferr Phos"]
+            },
+            {
+                question: "Emotions; Anger; easily angered",
+                options: ["No", "Yes"],
+                salts: ["Kali Phos", "Nat Sulph"]
+            },
+            {
+                question: "Emotions; crying and screaming often",
+                options: ["No", "Yes"],
+                salts: ["Phosphorus", "Kali Phos"]
+            },
+            {
+                question: "Emotions; easily excitable",
+                options: ["No", "Yes"],
+                salts: ["Arsenicum"]
+            },
+            {
+                question: "Emotions; hugs; not wanting to accept comfort, i.e. Doesn't like hugs",
+                options: ["No", "Yes"],
+                salts: ["Nat Mur"]
+            },
+            {
+                question: "Emotions; unruliness",
+                options: ["No", "Yes"],
+                salts: ["Argentum Nit"]
+            },
+            {
+                question: "Fontanel; taking a long to close",
+                options: ["No", "Yes"],
+                salts: ["Phosphorus"]
+            },
+            {
+                question: "Glands; Suppuration chronic, e.g. tonsils",
+                options: ["No", "Yes"],
+                salts: ["Silica", "Calc Sulph", "Nat Phos", "Hepar Sulph", "Calc Fluor"]
+            },
+            {
+                question: "Growth disturbances, i.e. slow growth or too fast",
+                options: ["No", "Yes"],
+                salts: ["Nux Vomica"]
+            },
+            {
+                question: "Hands/Feet; Bluish extremities (Rheynaud's phenomenon)",
+                options: ["No", "Yes"],
+                salts: ["Sepia"]
+            },
+            {
+                question: "Head; cradle cap",
+                options: ["No", "Yes"],
+                salts: ["Hepar Sulph", "Pulsatilla"]
+            }
+        ];
+
+        const tissueSaltInfo = {
+            "Calc Phos": {
+                name: "Calcarea Phosphorica (Calc Phos)",
+                description: "The cell salt for growth, bone health, and recovery. Supports the skeletal system, aids in nutrient absorption, and helps with fatigue and convalescence.",
+                benefits: "Strengthens bones and teeth, supports growth in children, aids recovery from illness, improves energy levels"
+            },
+            "Kali Phos": {
+                name: "Kali Phosphoricum (Kali Phos)",
+                description: "The nerve nutrient. Essential for nervous system health, mental clarity, and stress management. Known as the 'nerve tonic' of tissue salts.",
+                benefits: "Reduces anxiety and stress, improves mental clarity, supports nervous system, helps with insomnia"
+            },
+            "Nat Mur": {
+                name: "Natrum Muriaticum (Nat Mur)",
+                description: "The water distributor. Regulates fluid balance in the body, supports emotional health, and helps with headaches and skin conditions.",
+                benefits: "Balances body fluids, helps with dry skin, supports emotional wellbeing, relieves headaches"
+            },
+            "Ferr Phos": {
+                name: "Ferrum Phosphoricum (Ferr Phos)",
+                description: "The first aid remedy. Supports oxygen transport, boosts immunity, and helps with inflammation and fever.",
+                benefits: "Strengthens immune system, improves oxygen circulation, reduces inflammation, first aid for injuries"
+            },
+            "Mag Phos": {
+                name: "Magnesium Phosphoricum (Mag Phos)",
+                description: "The anti-spasmodic. Relieves muscle cramps, nerve pain, and tension. Known as the 'homeopathic aspirin'.",
+                benefits: "Relieves muscle cramps and spasms, eases nerve pain, reduces tension, helps with menstrual cramps"
+            },
+            "Nat Phos": {
+                name: "Natrum Phosphoricum (Nat Phos)",
+                description: "The acid neutralizer. Balances pH levels, aids digestion, and helps with joint problems.",
+                benefits: "Neutralizes excess acid, improves digestion, helps with heartburn, supports joint health"
+            },
+            "Kali Mur": {
+                name: "Kali Muriaticum (Kali Mur)",
+                description: "The decongestant. Helps with congestion, inflammation, and glandular swelling.",
+                benefits: "Reduces congestion, helps with ear infections, supports lymphatic system, aids digestion"
+            },
+            "Nat Sulph": {
+                name: "Natrum Sulphuricum (Nat Sulph)",
+                description: "The liver cleanser. Supports detoxification, liver function, and elimination.",
+                benefits: "Supports liver health, aids detoxification, helps with digestive issues, eliminates excess water"
+            },
+            "Kali Sulph": {
+                name: "Kali Sulphuricum (Kali Sulph)",
+                description: "The oxygen carrier. Supports skin health, respiratory function, and cellular oxygenation.",
+                benefits: "Improves skin conditions, supports respiratory health, aids oxygen distribution, helps with dandruff"
+            },
+            "Silica": {
+                name: "Silicea (Silica)",
+                description: "The cleanser and conditioner. Strengthens connective tissue, supports skin and hair health, and aids elimination of toxins.",
+                benefits: "Strengthens hair and nails, improves skin health, supports immune function, aids detoxification"
+            },
+            "Calc Fluor": {
+                name: "Calcarea Fluorica (Calc Fluor)",
+                description: "The elastic tissue salt. Maintains elasticity of tissues, supports vascular health, and helps with joint flexibility.",
+                benefits: "Maintains tissue elasticity, supports vein health, helps with varicose veins, improves joint flexibility"
+            },
+            "Calc Sulph": {
+                name: "Calcarea Sulphurica (Calc Sulph)",
+                description: "The blood purifier. Supports wound healing, skin health, and elimination of toxins.",
+                benefits: "Promotes wound healing, purifies blood, helps with skin conditions, supports detoxification"
+            }
+        };
+
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email && password) {
+                userEmail = email;
+                document.getElementById('loginSection').classList.add('hidden');
+                document.getElementById('welcomeSection').classList.remove('hidden');
+            } else {
+                alert('Please enter both email and password to continue.');
+            }
+        }
+
+        function showGuestMode() {
+            userEmail = 'guest@example.com';
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('welcomeSection').classList.remove('hidden');
+        }
+
+        function selectTier(serviceName, price) {
+            selectedService = serviceName;
+            selectedPrice = price;
+            
+            document.getElementById('orderItem').textContent = serviceName;
+            document.getElementById('orderPrice').textContent = '$' + price + '.00';
+            document.getElementById('orderTotal').textContent = '$' + price + '.00';
+
+            document.getElementById('welcomeSection').classList.add('hidden');
+            document.getElementById('paymentSection').classList.remove('hidden');
+        }
+
+        function processPayment() {
+            const cardName = document.getElementById('cardName').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardExpiry = document.getElementById('cardExpiry').value;
+            const cardCVC = document.getElementById('cardCVC').value;
+            const billingZip = document.getElementById('billingZip').value;
+
+            if (!cardName || !cardNumber || !cardExpiry || !cardCVC || !billingZip) {
+                alert('Please fill in all payment fields to continue.');
+                return;
+            }
+
+            const cleanCardNumber = cardNumber.replace(/\s/g, '');
+            if (cleanCardNumber.length < 15 || !/^\d+$/.test(cleanCardNumber)) {
+                alert('Please enter a valid card number.');
+                return;
+            }
+
+            if (!/^(\d{2})\/(\d{2})$/.test(cardExpiry)) {
+                alert('Please enter expiry date in MM/YY format.');
+                return;
+            }
+
+            if (cardCVC.length < 3 || !/^\d+$/.test(cardCVC)) {
+                alert('Please enter a valid CVC code.');
+                return;
+            }
+
+            const orderNumber = 'TS-' + Date.now();
+            document.getElementById('orderNumber').textContent = orderNumber;
+            document.getElementById('confirmEmail').textContent = userEmail;
+
+            const nextSteps = {
+                'Basic Assessment': 'Complete your 10-question assessment',
+                'Advanced Assessment': 'Complete your comprehensive 30-question assessment',
+                'Facial Analysis': 'Upload your facial photos for AI analysis',
+                'Personal Consultation': 'Schedule your video call with Dr. Aliki',
+                'Hair Mineral Analysis': 'Request your hair sample collection kit'
+            };
+            
+            document.getElementById('nextStep').textContent = nextSteps[selectedService] || 'Begin your wellness journey';
+
+            document.getElementById('paymentSection').classList.add('hidden');
+            document.getElementById('successSection').classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.getElementById('paymentSection').classList.add('hidden');
+            document.getElementById('welcomeSection').classList.remove('hidden');
+        }
+
+        function startAssessment() {
+            if (selectedService === 'Facial Analysis') {
+                // Route to facial analysis section
+                document.getElementById('successSection').classList.add('hidden');
+                document.getElementById('facialAnalysisSection').classList.remove('hidden');
+                return;
+            }
+            
+            if (selectedService === 'Basic Assessment') {
+                questions = basicQuestions;
+            } else if (selectedService === 'Advanced Assessment') {
+                questions = advancedQuestions;
+            } else {
+                alert('This service is coming soon! For now, try the Basic or Advanced Assessment.');
+                return;
+            }
+
+            currentQuestion = 0;
+            answers = {};
+            
+            document.getElementById('questionnaireTitle').textContent = selectedService;
+            document.getElementById('totalQuestions').textContent = questions.length;
+            
+            document.getElementById('successSection').classList.add('hidden');
+            document.getElementById('questionnaireSection').classList.remove('hidden');
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            if (currentQuestion >= questions.length) {
+                showResults();
+                return;
+            }
+
+            const q = questions[currentQuestion];
+            const container = document.getElementById('questionContainer');
+            
+            container.innerHTML = `
+                <div class="question-card">
+                    <div class="question-text">${q.question}</div>
+                    <div class="answer-options" id="answerOptions">
+                        ${q.options.map((opt, idx) => `
+                            <div class="answer-option" onclick="selectAnswer(${idx})" id="option${idx}">
+                                ${opt}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Restore previous answer if exists
+            if (answers[currentQuestion] !== undefined) {
+                document.getElementById('option' + answers[currentQuestion]).classList.add('selected');
+            }
+
+            document.getElementById('currentQuestionNum').textContent = currentQuestion + 1;
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+
+            document.getElementById('prevBtn').style.display = currentQuestion > 0 ? 'inline-block' : 'none';
+            document.getElementById('nextBtn').textContent = currentQuestion === questions.length - 1 ? 'See Results' : 'Next Question';
+        }
+
+        function selectAnswer(optionIndex) {
+            // Remove selected class from all options
+            document.querySelectorAll('.answer-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            document.getElementById('option' + optionIndex).classList.add('selected');
+            
+            // Store answer
+            answers[currentQuestion] = optionIndex;
+        }
+
+        function nextQuestion() {
+            if (answers[currentQuestion] === undefined) {
+                alert('Please select an answer before continuing.');
+                return;
+            }
+
+            currentQuestion++;
+            showQuestion();
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function showResults() {
+            // Calculate tissue salt scores
+            const saltScores = {};
+            
+            questions.forEach((q, idx) => {
+                const answerValue = answers[idx];
+                if (answerValue >= 2) { // "Sometimes" or higher
+                    q.salts.forEach(salt => {
+                        saltScores[salt] = (saltScores[salt] || 0) + (answerValue - 1);
+                    });
+                }
+            });
+
+            // Sort by score and get top recommendations
+            const sortedSalts = Object.entries(saltScores)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5)
+                .map(entry => entry[0]);
+
+            // Display results
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = sortedSalts.map(salt => {
+                const info = tissueSaltInfo[salt];
+                return `
+                    <div class="result-item">
+                        <h3>${info.name}</h3>
+                        <p><strong>What it does:</strong> ${info.description}</p>
+                        <p><strong>Benefits:</strong> ${info.benefits}</p>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('questionnaireSection').classList.add('hidden');
+            document.getElementById('resultsSection').classList.remove('hidden');
+        }
+
+        function orderCustomBlend() {
+            alert('Custom blend ordering coming soon! This would allow you to order a personalized tissue salt blend based on your assessment results.');
+        }
+
+        function returnHome() {
+            document.getElementById('successSection').classList.add('hidden');
+            document.getElementById('resultsSection').classList.add('hidden');
+            document.getElementById('questionnaireSection').classList.add('hidden');
+            document.getElementById('welcomeSection').classList.remove('hidden');
+        }
+
+        // Auto-format card number with spaces
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formatted;
+        });
+
+        // Auto-format expiry date
+        document.getElementById('cardExpiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Only allow numbers in CVC
+        document.getElementById('cardCVC').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Dashboard functions
+        function showDashboard() {
+            // Hide all sections
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('welcomeSection').classList.add('hidden');
+            document.getElementById('paymentSection').classList.add('hidden');
+            document.getElementById('successSection').classList.add('hidden');
+            document.getElementById('questionnaireSection').classList.add('hidden');
+            document.getElementById('resultsSection').classList.add('hidden');
+            
+            // Show dashboard
+            document.getElementById('dashboardSection').classList.remove('hidden');
+            
+            // Load history
+            loadAssessmentHistory();
+        }
+
+        function showWelcomeFromDashboard() {
+            document.getElementById('dashboardSection').classList.add('hidden');
+            document.getElementById('welcomeSection').classList.remove('hidden');
+        }
+
+        async function loadAssessmentHistory() {
+            const token = localStorage.getItem('sessionToken');
+            if (!token) {
+                document.getElementById('historyContainer').innerHTML = 
+                    '<p style="text-align: center; color: #888;">Please log in to view your history.</p>';
+                return;
+            }
+
+            try {
+                const response = await fetch(API_URL + '/api/get-assessments', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token })
+                });
+
+                const data = await response.json();
+                
+                if (data.success && data.assessments && data.assessments.length > 0) {
+                    displayAssessmentHistory(data.assessments);
+                } else {
+                    document.getElementById('historyContainer').innerHTML = `
+                        <div style="text-align: center; padding: 40px;">
+                            <p style="color: #888; font-size: 1.1em; margin-bottom: 20px;">You haven't completed any assessments yet.</p>
+                            <button class="btn btn-gold" onclick="showWelcomeFromDashboard()">Start Your First Assessment</button>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading history:', error);
+                document.getElementById('historyContainer').innerHTML = 
+                    '<p style="text-align: center; color: #d32f2f;">Error loading history. Please try again.</p>';
+            }
+        }
+
+        function displayAssessmentHistory(assessments) {
+            let html = '<div style="display: grid; gap: 20px;">';
+            
+            assessments.forEach(assessment => {
+                const date = new Date(assessment.created_at).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                const results = assessment.results || [];
+                const topSalts = results.slice(0, 3).map(r => r.name).join(', ');
+                
+                html += `
+                    <div class="tier-card" style="cursor: default; background: white;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                            <div>
+                                <h3 style="color: #5a7c5a; margin: 0 0 5px 0;">${assessment.service_type}</h3>
+                                <p style="color: #888; font-size: 0.9em; margin: 0;">Order #${assessment.order_number}</p>
+                                <p style="color: #888; font-size: 0.9em; margin: 5px 0 0 0;">${date}</p>
+                            </div>
+                            <span style="background: #e8f5e9; color: #2e7d32; padding: 5px 15px; border-radius: 20px; font-size: 0.9em; font-weight: bold;">Completed</span>
+                        </div>
+                        
+                        <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                            <p style="margin: 0 0 5px 0; font-weight: bold; color: #5a7c5a;">Age Group:</p>
+                            <p style="margin: 0; color: #666;">${assessment.age_group || 'Not specified'}</p>
+                        </div>
+                        
+                        <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                            <p style="margin: 0 0 5px 0; font-weight: bold; color: #e65100;">Top Recommendations:</p>
+                            <p style="margin: 0; color: #666;">${topSalts || 'No recommendations available'}</p>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 15px;">
+                            <button class="btn btn-secondary" onclick="alert('Demo: Full results view coming soon!')">View Full Results</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            document.getElementById('historyContainer').innerHTML = html;
+        }
+
+        function logout() {
+            const token = localStorage.getItem('sessionToken');
+            
+            if (token) {
+                fetch(API_URL + '/api/logout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token })
+                }).catch(err => console.error('Logout error:', err));
+            }
+            
+            localStorage.removeItem('sessionToken');
+            localStorage.removeItem('userEmail');
+            userEmail = null;
+            
+            // Hide dashboard and show login
+            document.getElementById('dashboardSection').classList.add('hidden');
+            document.getElementById('loginSection').classList.remove('hidden');
+            
+            alert('You have been logged out successfully.');
+        }
+
+    
+        // Facial Analysis Functions
+        let uploadedPhotoData = null;
+
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedPhotoData = e.target.result;
+                    document.getElementById('uploadedPhoto').src = e.target.result;
+                    document.getElementById('photoPreview').style.display = 'block';
+                    document.getElementById('analyzeButtonContainer').style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function analyzeFace() {
+            // Hide analyze button, show progress
+            document.getElementById('analyzeButtonContainer').style.display = 'none';
+            document.getElementById('analysisProgress').style.display = 'block';
+
+            // Simplified animation for mobile compatibility
+            document.getElementById('analysisStep').textContent = 'Analyzing facial features...';
+            
+            // Show results after 2 seconds (shorter for better UX)
+            setTimeout(function() {
+                try {
+                    showFacialResults();
+                } catch (error) {
+                    console.error('Error showing results:', error);
+                    alert('Analysis complete! Click OK to see results.');
+                    showFacialResults();
+                }
+            }, 2000);
+        }
+
+        function showFacialResults() {
+            // FIRST: Switch sections immediately
+            try {
+                document.getElementById('analysisProgress').style.display = 'none';
+                document.getElementById('facialAnalysisSection').classList.add('hidden');
+                document.getElementById('facialResultsSection').classList.remove('hidden');
+            } catch (e) {
+                console.error('Error switching sections:', e);
+            }
+            
+            // Generate random facial features for demo
+            const possibleFeatures = [
+                { feature: 'Skin Tone', value: 'Slightly pale with waxy appearance', salt: 'Calc Phos' },
+                { feature: 'Under Eye Area', value: 'Dark circles detected', salt: 'Calc Fluor' },
+                { feature: 'Forehead', value: 'Slight greasy shine observed', salt: 'Nat Phos' },
+                { feature: 'Skin Texture', value: 'Small pores, polished appearance', salt: 'Silicea' },
+                { feature: 'Cheeks', value: 'Mild redness detected', salt: 'Ferr Phos' },
+                { feature: 'Eye Area', value: 'Fine lines (crow\'s feet)', salt: 'Silicea' },
+                { feature: 'Complexion', value: 'Generally healthy with minor concerns', salt: null }
+            ];
+
+            // Randomly select 4-5 features
+            const numFeatures = 4 + Math.floor(Math.random() * 2);
+            const selectedFeatures = [];
+            const usedIndices = new Set();
+            
+            while (selectedFeatures.length < numFeatures && usedIndices.size < possibleFeatures.length) {
+                const idx = Math.floor(Math.random() * possibleFeatures.length);
+                if (!usedIndices.has(idx)) {
+                    usedIndices.add(idx);
+                    selectedFeatures.push(possibleFeatures[idx]);
+                }
+            }
+
+            // Display detected features
+            let featuresHTML = '<ul style="list-style: none; padding: 0;">';
+            selectedFeatures.forEach(f => {
+                featuresHTML += `
+                    <li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
+                        <strong style="color: #5a7c5a;">${f.feature}:</strong><br>
+                        <span style="color: #666;">${f.value}</span>
+                    </li>
+                `;
+            });
+            featuresHTML += '</ul>';
+            document.getElementById('detectedFeatures').innerHTML = featuresHTML;
+
+            // Count tissue salt recommendations
+            const saltCounts = {};
+            selectedFeatures.forEach(f => {
+                if (f.salt) {
+                    saltCounts[f.salt] = (saltCounts[f.salt] || 0) + 1;
+                }
+            });
+
+            // Get top 3-4 recommendations
+            const sortedSalts = Object.entries(saltCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 4);
+
+            // Display recommendations
+            let recsHTML = '';
+            sortedSalts.forEach(([salt, count]) => {
+                const saltInfo = tissueSalts.find(s => s.name === salt);
+                if (saltInfo) {
+                    recsHTML += `
+                        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #5a7c5a;">
+                            <h4 style="color: #5a7c5a; margin: 0 0 10px 0;">${saltInfo.name} - ${saltInfo.fullName}</h4>
+                            <p style="margin: 0; color: #666;">${saltInfo.description}</p>
+                            <p style="margin: 10px 0 0 0; color: #888; font-size: 0.9em;"><strong>Benefits:</strong> ${saltInfo.benefits}</p>
+                        </div>
+                    `;
+                }
+            });
+
+            document.getElementById('facialRecommendations').innerHTML = recsHTML;
+            // Only set photo if one was uploaded
+            if (uploadedPhotoData) {
+                document.getElementById('analyzedPhoto').src = uploadedPhotoData;
+            } else {
+                // Use a placeholder or hide the photo section
+                document.getElementById('analyzedPhoto').style.display = 'none';
+            }
+            // Section switching is now at the beginning of this function
+        }
+
+        function startFacialAnalysis() {
+            // Hide all sections
+            document.querySelectorAll('.card').forEach(card => card.classList.add('hidden'));
+            // Show facial analysis section
+            document.getElementById('facialAnalysisSection').classList.remove('hidden');
+            // Reset the form
+            document.getElementById('facePhoto').value = '';
+            document.getElementById('photoPreview').style.display = 'none';
+            document.getElementById('analyzeButtonContainer').style.display = 'none';
+            document.getElementById('analysisProgress').style.display = 'none';
+        }
+
+
+        </script>
+</body>
+</html>
+
